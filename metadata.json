@@ -1,0 +1,10 @@
+{
+  "name": "SafeScan Guard - Link & QR Threat Analyzer",
+  "description": "Deep security scanner for unknown links, suspicious URLs, and QR codes powered by multi-engine heuristic checks and Google AI intelligence.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
