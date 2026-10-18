@@ -106,7 +106,7 @@ export const ScannerHero: React.FC<ScannerHeroProps> = ({
             <span>Multi-Engine Phishing & QR Fraud Detection</span>
           </div>
 
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-xs font-bold text-emerald-900 shadow-2xs">
+          <div className="inline-flex flex-wrap items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-xs font-bold text-emerald-900 shadow-2xs">
             <span>Created by <span className="font-extrabold text-emerald-700">"Techy Team"</span></span>
             <span className="text-emerald-400">•</span>
             <span className="font-medium text-emerald-800">Himanshu singh <span className="text-[10px] font-bold text-emerald-600">(creater)</span></span>
@@ -115,6 +115,10 @@ export const ScannerHero: React.FC<ScannerHeroProps> = ({
             <span className="text-emerald-400">•</span>
             <a href="tel:9453758073" className="text-emerald-700 hover:text-emerald-900 underline font-bold">
               Ph: 9453758073
+            </a>
+            <span className="text-emerald-400">•</span>
+            <a href="mailto:hs25122208@gmail.com" className="text-emerald-700 hover:text-emerald-900 underline font-bold" title="Consult Email">
+              Mail: hs25122208@gmail.com
             </a>
           </div>
         </div>

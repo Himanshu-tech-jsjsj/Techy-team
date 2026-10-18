@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Cpu, Lock, Phone, UserCheck, Users, MessageSquare } from 'lucide-react';
+import { ShieldCheck, Cpu, Lock, Phone, UserCheck, Users, MessageSquare, Mail } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -35,20 +35,32 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Contact Action */}
-          <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
+          {/* Contact Actions: Phone, WhatsApp, and Consultation Mail */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 shrink-0">
             <a
               href="tel:9453758073"
-              className="flex items-center gap-2 px-4 py-2 bg-white hover:bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-800 shadow-2xs hover:border-emerald-300 transition-all group"
+              className="flex items-center gap-2 px-3.5 py-2 bg-white hover:bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-800 shadow-2xs hover:border-emerald-300 transition-all group"
+              title="Call Creator: 9453758073"
             >
               <Phone className="w-3.5 h-3.5 text-emerald-600 group-hover:scale-110 transition-transform" />
-              <span>Call: 9453758073</span>
+              <span>9453758073</span>
             </a>
+
+            <a
+              href="mailto:hs25122208@gmail.com?subject=Consultation%20Query%20-%20SafeScan%20Guard"
+              className="flex items-center gap-2 px-3.5 py-2 bg-white hover:bg-slate-50 border border-emerald-300 rounded-xl text-xs font-bold text-emerald-800 shadow-2xs hover:bg-emerald-50/50 transition-all group"
+              title="Consultation Mail: hs25122208@gmail.com"
+            >
+              <Mail className="w-3.5 h-3.5 text-emerald-600 group-hover:scale-110 transition-transform" />
+              <span>hs25122208@gmail.com</span>
+            </a>
+
             <a
               href="https://wa.me/919453758073"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-sm shadow-emerald-600/20 transition-all hover:scale-[1.02]"
+              className="flex items-center gap-2 px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-sm shadow-emerald-600/20 transition-all hover:scale-[1.02]"
+              title="Chat on WhatsApp"
             >
               <MessageSquare className="w-3.5 h-3.5" />
               <span>WhatsApp</span>
@@ -81,10 +93,17 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Copyright notice */}
-        <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-2">
+        {/* Copyright & Direct Consultation Contact */}
+        <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-2">
           <p>© {new Date().getFullYear()} SafeScan Guard • Developed by Techy Team (Himanshu singh & Abhishek kumar)</p>
-          <p>Creator Helpline: +91 9453758073 • Verified Cyber Defense Tool</p>
+          <p className="flex flex-wrap items-center gap-2">
+            <span>For Consult:</span>
+            <a href="mailto:hs25122208@gmail.com" className="font-semibold text-emerald-700 hover:underline">
+              hs25122208@gmail.com
+            </a>
+            <span>•</span>
+            <span>Phone: +91 9453758073</span>
+          </p>
         </div>
       </div>
     </footer>
