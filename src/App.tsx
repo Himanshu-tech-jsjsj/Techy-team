@@ -105,14 +105,16 @@ export default function App() {
         }),
       });
 
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.error || `Server responded with status ${response.status}`);
+      let data: ScanResult;
+      if (response.ok) {
+        data = await response.json();
+      } else {
+        // Fallback to client-side threat analysis if server returned non-200
+        const { runClientSideScanFallback } = await import('./utils/clientFallback');
+        data = runClientSideScanFallback(target, sourceType);
       }
 
-      const data: ScanResult = await response.json();
       data.sourceType = sourceType;
-
       setResult(data);
       saveHistoryItem(data, sourceType);
 
@@ -120,8 +122,19 @@ export default function App() {
         resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 200);
     } catch (err: any) {
-      console.error('Scan failed:', err);
-      setScanError(err.message || 'Could not complete link analysis. Please verify your connection or link syntax.');
+      console.warn('Network scan fetch failed, using instant client heuristics fallback:', err);
+      try {
+        const { runClientSideScanFallback } = await import('./utils/clientFallback');
+        const fallbackData = runClientSideScanFallback(target, sourceType);
+        setResult(fallbackData);
+        saveHistoryItem(fallbackData, sourceType);
+
+        setTimeout(() => {
+          resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 200);
+      } catch (fallbackErr: any) {
+        setScanError('Unable to analyze target. Please check link format.');
+      }
     } finally {
       setIsScanning(false);
     }
